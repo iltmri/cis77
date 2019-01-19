@@ -5,4 +5,4 @@ Introduces the methods used to properly conduct a computer forensics investigati
 
 Content for CIS 77 course. Each module will have its own folder for content. Use this repository to download the files necessary to complete the required work.
 
-If you have any questions, contact the professor.
+If you have any questions, contact Irvin Lemus on Canvas.
