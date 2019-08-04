@@ -1,0 +1,15 @@
+Create Ubuntu VM (20/month)
+sudo aptt update && sudo apt dist-upgrade -y
+sudo apt install ubuntu-gnome-desktop
+sudo apt-get install -y xrdp
+adduser sansforensics
+usermod -aG admin sansforensics
+usermod -aG sudo sansforensics
+su - sansforensics
+sudo sed -i 's/allowed_users=console/allowed_users=anybody/' /etc/X11/Xwrapper.config
+
+After Connecting via RDP:
+sudo nano /etc/polkit-1/localauthority.conf.d/02-allow-colord.conf
+
+sudo apt-get install gnome-tweak-tool -y
+if you want to have a dock
