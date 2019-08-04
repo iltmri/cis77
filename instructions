@@ -1,7 +1,6 @@
 Create Ubuntu VM (20/month)
-sudo aptt update && sudo apt dist-upgrade -y
-sudo apt install ubuntu-gnome-desktop
-sudo apt-get install -y xrdp
+sudo apt update && sudo apt dist-upgrade -y
+sudo apt install ubuntu-gnome-desktop xrdp -y
 adduser sansforensics
 usermod -aG admin sansforensics
 usermod -aG sudo sansforensics
@@ -11,5 +10,19 @@ sudo sed -i 's/allowed_users=console/allowed_users=anybody/' /etc/X11/Xwrapper.c
 After Connecting via RDP:
 sudo nano /etc/polkit-1/localauthority.conf.d/02-allow-colord.conf
 
+polkit.addRule(function(action, subject) {
+if ((action.id == "org.freedesktop.color-manager.create-device" ||
+action.id == "org.freedesktop.color-manager.create-profile" ||
+action.id == "org.freedesktop.color-manager.delete-device" ||
+action.id == "org.freedesktop.color-manager.delete-profile" ||
+action.id == "org.freedesktop.color-manager.modify-device" ||
+action.id == "org.freedesktop.color-manager.modify-profile") &&
+subject.isInGroup("{group}")) {
+return polkit.Result.YES;
+}
+});
+
 sudo apt-get install gnome-tweak-tool -y
 if you want to have a dock
+
+follow installation steps from sans
